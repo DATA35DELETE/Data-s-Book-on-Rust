@@ -9,7 +9,7 @@
 
     <script src="../Sources/JS/setBackgroundMedia.js"></script>
 
-    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <link rel="stylesheet" href="../Sources/JS/hljs/atom-one-dark-reasonable.css">
     <script src="../Sources/JS/hljs/highlight.min.js"></script>
     <script>
         window.onload = function() {
@@ -114,27 +114,27 @@
         <h3>IDE Seçimi</h3>
         <pre id="preh3">Ben gelişme ortamı olarak Visual Studio Code'u kullanıcağım. Ancak siz istediğiniz geliştirme ortamını kullanabilirsiniz.</pre>
 
-        <pre id="preh2">Visual Studio Code kullananlar, uygun eklentimizi <a href="https://marketplace.visualstudio.com/items?itemName=1YiB.rust-bundle">kuralım</a>.</pre>
+        <pre id="preh3">Visual Studio Code kullananlar, uygun eklentimizi <a href="https://marketplace.visualstudio.com/items?itemName=1YiB.rust-bundle">kuralım</a>.</pre>
 
-        <pre id="preh2">Artık Rust programlama dilinde uygulamalar geliştirebiliriz.</pre>
+        <pre id="preh3">Artık Rust programlama dilinde uygulamalar geliştirebiliriz.</pre>
 
         <h3>İlk Proje</h3>
         <pre id="preh3">İlk projemizi oluşturmak için bir klasör oluşturalım ve şu komutu girelim;</pre>
 
-        <pre id="codeh3"><code class="language-rust">cargo new ilkProjemiz</code></pre>
+        <pre id="codeh3"><span>main.cmd</span><code class="language-rust">cargo new ilkProjemiz</code></pre>
 
         <pre id="preh3">Ardından oluşan klasörde Visual Studio Code ile açalım. Artık ilk projemiz oluşmuş oldu...</pre>
 
         <h2>İlk Program</h2>
         <pre id="preh2">VS Code ile açtığımız klasörde şu komutuda çalıştıralım;</pre>
 
-        <pre id="codeh2"><code class="language-bash">cargo run</code></pre>
+        <pre id="codeh2"><span>main.cmd</span><code class="language-bash">cargo run</code></pre>
 
         <pre id="preh2">Kodun çıktısında "Hello, world!" görebilirsiniz. Tebrikler, ilk programınızı derleyip çalıştırdınız!</pre>
 
         <pre id="preh2">Şimdi kodları inceleyelim.</pre>
 
-        <pre id="codeh2"><code class="language-rust">// <- Bu işaretler yorum satırı anlamına gelir. Yorum satırı ise uygulamanın görmediği kısımlardır. İlerki sayfalarda daha detaylı işlenicektir
+        <pre id="codeh2"><span>main.rs</span><code class="language-rust">// <- Bu işaretler yorum satırı anlamına gelir. Yorum satırı ise uygulamanın görmediği kısımlardır. İlerki sayfalarda daha detaylı işlenicektir
 
 fn main() // Programın başı. Tüm programlar bu kısımdan başlarlar 
 { // Kod bloğun başlangıcı
@@ -152,35 +152,35 @@ fn main() // Programın başı. Tüm programlar bu kısımdan başlarlar
         <h3>Cargo Check</h3>
         <pre id="preh3">Bu komut, kodda herhangi bir hatanın veya uyarının olup olmadığını kontrol eden ve bir çıktı olarak bizlere göstermektedir. Aynı komutu projemize yazarsak, aynı şekilde bizlerde sonucu gözlemleyebiliriz.</pre>
 
-        <pre id="code3"><code class="language-rust">cargo check</code></pre>
+        <pre id="codeh3"><span>main.cmd</span><code class="language-rust">cargo check</code></pre>
 
         <h3>Cargo Build</h3>
         <pre id="preh3">Bu komutta hatasız olan Rust kodunu Assembly diline akabinde çalıştırılabilir dosyaya derler.</pre>
 
-        <pre id="codeh3"><code class="language-rust">cargo build</code></pre>
+        <pre id="codeh3"><span>main.cmd</span><code class="language-rust">cargo build</code></pre>
 
         <h3>Cargo Run</h3>
         <pre id="preh3">Bizimde sıklıkla kullanıcağımız bu komutta, bahsettiğimiz komutlara ek olarak bir de derlenen programı çalıştıran bir komuttur.</pre>
 
-        <pre id="codeh3"><code class="language-rust">cargo run</code></pre>
+        <pre id="codeh3"><span>main.cmd</span><code class="language-rust">cargo run</code></pre>
 
         <h3>Rustc</h3>
         <pre id="preh3">Rustc, Cargo aracının temelinde yatan araçtır. Bu araç, bizlere proje oluşturmadan tekli Rust kaynak dosyalarını derlememizi sağlar.</pre>
 
-        <pre id="codeh2">Örnek olarak, başka bir klasörün içerisine "main.rs" adlı kod dosyasını oluşturalım ve şu komutları yazalım;
+        <pre id="preh3">Örnek olarak, başka bir klasörün içerisine "main.rs" adlı kod dosyasını oluşturalım ve şu komutları yazalım;</pre>
 
-<code class="language-rust">fn main()
+<pre id="codeh2"><span>main.rs</span><code class="language-rust">fn main()
 {
     println!("Merhaba, Rust programcısı!");
-}</code>
+}</code></pre>
 
-Ardından
+<pre id="preh2">Ardından</pre>
 
-<code class="language-bash">rustc main.rs
+<pre id="codeh2"><span>main.cmd</span><code class="language-bash">rustc main.rs
 ./main # Linux
-main # Windows</code>
+main # Windows</code></pre>
 
-Çıktısı ise;</pre>
+<pre id="preh2">Çıktısı ise;</pre>
 
         <div id="divh2Img">
             <img src="../Bibliography/3 Rust Giris.html/2.png" alt="3.2" width="100%">
@@ -189,18 +189,18 @@ main # Windows</code>
         <h3>Sürümler Arası Geçiş</h3>
         <pre id="preh3">Açtığımız projeye geri dönelim. Projenin klasöründe "Cargo.toml" adlı bir dosya görüceksiniz. Bu dosya projemizin paket yöneticisidir. Bu kısımda yazılan kütüphaneleri kolayla programıza katabilir. İçerisinde sürüm bilgileride bulunur.</pre>
 
-        <pre id="codeh3"><code class="language-toml"># <- Toml için yorum satırı
+        <pre id="codeh3"><span>Cargo.toml</span><code class="language-toml"># <- Toml için yorum satırı
 
 [package]
 name = "ilkProjemiz"
 version = "0.1.0"
 edition = "2024" # <- Bu kısım
 
-[dependencies]</code>
+[dependencies]</code></pre>
 
-"edition" kısmı, projenin hangi Rust sürümünü kullanıcağını ifade eder. Rust sürümleri ise üç yıl arayla çıkan stabil Rust programlama dilinin sürümleridir. Aşağıda sürüm yılları verilmiştir;</pre>
+<pre id="preh3">"edition" kısmı, projenin hangi Rust sürümünü kullanıcağını ifade eder. Rust sürümleri ise üç yıl arayla çıkan stabil Rust programlama dilinin sürümleridir. Aşağıda sürüm yılları verilmiştir;</pre>
 
-        <ul>
+        <ul id="listh3">
             <li>2024</li>
             <li>2021</li>
             <li>2018</li>
