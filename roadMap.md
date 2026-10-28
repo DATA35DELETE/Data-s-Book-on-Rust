@@ -17,22 +17,15 @@
 - **Rust Nedir?**
   - **Kısa Tarihçesi**: Mozilla, 2010, 1.0 Sürümü (2015).
   - **C/C++ ile Farkı**: Bellek Güvenliği. Garbage Collector Yok. Ownership Modeli.
-  - **Nasıl Kullanılır?**
   - **Kullanım Alanları**: Sistem Programlama. WebAssembly. CLI Araçları. Embedded.
-  - **Rust'ın Temel Felsefesi**: Güvenlik. Hız. Eş Zamanlılık (Fearless Concurrency).
 - **Rust'ı Kurma**
   - **rustup Kurulumu**: rustup Nedir? Nasıl Kurulur? Toolchain Yönetimi.
   - **IDE Seçimi**: VS Code + rust-analyzer. RustRover.
   - **İlk Proje**: `cargo new`. Proje Yapısı.
 - **İlk Kod**: println! ve Giriş Alma
-  - **println! Makrosu**: Tanım. Formatlama (`{}`, `{:?}`, `{:#?}`). Örnek.
-  - **Kullanıcıdan Girdi Alma**: `std::io::stdin`. `read_line`. Örnek.
-  - **C/C++'dan Farkı**: printf vs println!. scanf vs stdin. Örnek.
-  - **Parametreli Programlar Yazma**: `std::env::args`. Tanım. Örnek.
 - **Derleme Süreci**: Tanım. Neden Önemli?
   - **Cargo**: Tanım. `cargo build`. `cargo run`. `cargo check`. Örnek.
   - **rustc**: Doğrudan Derleme. Örnek.
-  - **Derleme Hedefleri (Targets)**: `--target`. Cross Compilation. Örnek.
   - **Rust Editions**: 2015, 2018, 2021, 2024. `edition` Alanı. Farklar.
  
 ---
@@ -40,6 +33,11 @@
 ### Rust : Değişkenler
 - **Değişkenler Nedir?**: Tanımı. Kullanım Senaryoları.
 - **let ve Değişmezlik (Immutability)**: Tanım. `let` vs `let mut`. Örnek.
+- **Çıktı ve Girdi**
+  - **println! Makrosu**: Tanım. Formatlama (`{}`, `{:?}`, `{:#?}`). Örnek.
+  - **Kullanıcıdan Girdi Alma**: `std::io::stdin`. `read_line`. Örnek.
+  - **C/C++'dan Farkı**: printf vs println!. scanf vs stdin. Örnek.
+  - **Parametreli Programlar Yazma**: `std::env::args`. Tanım. Örnek.
 - **Sayısal Değişkenler**
   - **i8 / i16 / i32 / i64 / i128**: Tanım. İşaretli Tam Sayılar. Örnek.
   - **u8 / u16 / u32 / u64 / u128**: Tanım. İşaretsiz Tam Sayılar. Örnek.
@@ -70,12 +68,12 @@
   - **Bileşik Atama Operatörleri**: +=, -=, \*=, /=. Örnek.
 - **Yorum Satırı**: // ve /* */. `///` Dokümantasyon Yorumu. `//!` Modül Yorumu. Örnek.
 - **Karşılaştırma Operatörleri**
-  - **<, >, <=, >=, ==, !=**: Tanım. `PartialEq` ve `PartialOrd` Trait'leri. Örnek.
+  - **&lt;, >, &lt;=, >=, ==, !=**: Tanım. `PartialEq` ve `PartialOrd` Trait'leri. Örnek.
 - **Mantıksal Operatörler**
   - **!**: Tanım. Örnek.
   - **&&**: Tanım. Kısa Devre Değerlendirme. Örnek.
   - **||**: Tanım. Kısa Devre Değerlendirme. Örnek.
-- **Bitwise Operatörler**: &, |, ^, !, <<, >>. Tanım. Örnek.
+- **Bitwise Operatörler**: &, |, ^, !, &lt;&lt;, >>. Tanım. Örnek.
 - **Aralık Operatörleri**: `..` ve `..=`. Tanım. Örnek.
 - **std::mem::size_of**: Tanım. `size_of_val`. Örnek.
 
@@ -143,18 +141,18 @@
  
 ### Rust : Koleksiyonlar
 - **Koleksiyon Nedir?**: Tanım. Heap Üzerinde Depolama. Kullanım Senaryoları.
-- **Vec<T> (Vektör)**: Tanım. Dinamik Dizi. Örnek.
+- **Vec&lt;T> (Vektör)**: Tanım. Dinamik Dizi. Örnek.
   > Metodları
-- **VecDeque<T>**: Tanım. Çift Uçlu Kuyruk. Örnek.
+- **VecDeque&lt;T>**: Tanım. Çift Uçlu Kuyruk. Örnek.
   > Metodları
-- **HashMap<K, V>**: Tanım. Anahtar-Değer. Örnek.
+- **HashMap&lt;K, V>**: Tanım. Anahtar-Değer. Örnek.
   > Metodları
-- **BTreeMap<K, V>**: Tanım. Sıralı Map. HashMap ile Farkı. Örnek.
-- **HashSet<T>**: Tanım. Küme İşlemleri. Örnek.
+- **BTreeMap&lt;K, V>**: Tanım. Sıralı Map. HashMap ile Farkı. Örnek.
+- **HashSet&lt;T>**: Tanım. Küme İşlemleri. Örnek.
   > Metodları
-- **BTreeSet<T>**: Tanım. Sıralı Küme. Örnek.
-- **LinkedList<T>**: Tanım. Doubly Linked List. Örnek.
-- **BinaryHeap<T>**: Tanım. Öncelikli Kuyruk. Örnek.
+- **BTreeSet&lt;T>**: Tanım. Sıralı Küme. Örnek.
+- **LinkedList&lt;T>**: Tanım. Doubly Linked List. Örnek.
+- **BinaryHeap&lt;T>**: Tanım. Öncelikli Kuyruk. Örnek.
  
 ---
  
@@ -167,8 +165,8 @@
 - **Associated Functions**: Tanım. `Self`. Constructor Paterni. Örnek.
 - **Enum Nedir?**: Tanım. C enum ile Farkı. Veri Taşıyan Enum.
 - **Enum Tanımlama**: Tanım. Varyantlar. Veri İçeren Varyantlar. Örnek.
-- **Option<T>**: Tanım. `Some(T)` ve `None`. Null Güvenliği. Örnek.
-- **Result<T, E>**: Tanım. `Ok(T)` ve `Err(E)`. Hata Yönetimi. Örnek.
+- **Option&lt;T>**: Tanım. `Some(T)` ve `None`. Null Güvenliği. Örnek.
+- **Result&lt;T, E>**: Tanım. `Ok(T)` ve `Err(E)`. Hata Yönetimi. Örnek.
 - **Pattern Matching Detaylı**: Tanım. Destructuring. Nested Pattern. Örnek.
 - **if let ve while let**: Tanım. match Kısayolu. Örnek.
 - **let-else**: Tanım. Erken Çıkış Paterni. Örnek.
@@ -179,7 +177,7 @@
 - **Hata Yönetimi Nedir?**: Tanım. Rust Yaklaşımı. Panik vs Kurtarılabilir Hata.
 - **panic! Makrosu**: Tanım. Kullanım Senaryoları. Örnek.
   - **RUST_BACKTRACE**: Tanım. Hata İzleme. Örnek.
-- **Result<T, E>**: Tanım. Kullanım. Örnek.
+- **Result&lt;T, E>**: Tanım. Kullanım. Örnek.
   - **unwrap()**: Tanım. Tehlikesi. Örnek.
   - **expect()**: Tanım. Mesajlı Panik. Örnek.
   - **match ile Hata Yönetimi**: Tanım. Örnek.
@@ -213,12 +211,12 @@
 - **Derived Trait'ler**: `#[derive()]`. `Debug`, `Clone`, `Copy`, `PartialEq`, `Eq`, `Hash`. Örnek.
 - **Trait Bound**: `T: Trait`. `where` Clause. Tanım. Örnek.
 - **impl Trait Sözdizimi**: Parametrede ve Dönüş Tipinde. Tanım. Örnek.
-- **Trait Objesi (dyn Trait)**: Tanım. Dynamic Dispatch. `Box<dyn Trait>`. Örnek.
+- **Trait Objesi (dyn Trait)**: Tanım. Dynamic Dispatch. `Box&lt;dyn Trait>`. Örnek.
 - **Supertraits**: Tanım. Trait Kalıtımı. Örnek.
 - **Generics Nedir?**: Tanım. Fonksiyonda. Struct'ta. Enum'da. Örnek.
 - **Generic Fonksiyonlar**: Tanım. Monomorphization. Örnek.
 - **Generic Struct ve Enum**: Tanım. Örnek.
-- **Turbofish Sözdizimi**: `::<>`. Tanım. Örnek.
+- **Turbofish Sözdizimi**: `::&lt;>`. Tanım. Örnek.
 - **Yaygın Standart Trait'ler**: `Display`, `Debug`, `Default`, `From`, `Into`, `Iterator`, `Drop`. Tablo Halinde.
  
 ---
@@ -250,15 +248,15 @@
  
 ### Rust : Akıllı Pointer'lar
 - **Akıllı Pointer Nedir?**: Tanım. C++ ile Karşılaştırma. Kullanım Senaryoları.
-- **Box<T>**: Tanım. Heap Allocation. Recursive Tipler. Örnek.
-- **Rc<T>**: Tanım. Referans Sayımı (Reference Counting). Tek Thread. Örnek.
-- **Arc<T>**: Tanım. Atomik Referans Sayımı. Multi-Thread. Örnek.
-- **RefCell<T>**: Tanım. İç Değişkenlik (Interior Mutability). Çalışma Zamanı Borrowing. Örnek.
-- **Cell<T>**: Tanım. Copy Tipler için İç Değişkenlik. Örnek.
-- **Mutex<T>**: Tanım. Thread-Safe İç Değişkenlik. Örnek.
-- **RwLock<T>**: Tanım. Çoklu Okuyucu, Tek Yazıcı. Örnek.
-- **Cow<'a, B>**: Tanım. Clone on Write. Kullanım Senaryosu. Örnek.
-- **Weak<T>**: Tanım. Döngüsel Referans Çözümü. Rc/Arc ile Kullanım. Örnek.
+- **Box&lt;T>**: Tanım. Heap Allocation. Recursive Tipler. Örnek.
+- **Rc&lt;T>**: Tanım. Referans Sayımı (Reference Counting). Tek Thread. Örnek.
+- **Arc&lt;T>**: Tanım. Atomik Referans Sayımı. Multi-Thread. Örnek.
+- **RefCell&lt;T>**: Tanım. İç Değişkenlik (Interior Mutability). Çalışma Zamanı Borrowing. Örnek.
+- **Cell&lt;T>**: Tanım. Copy Tipler için İç Değişkenlik. Örnek.
+- **Mutex&lt;T>**: Tanım. Thread-Safe İç Değişkenlik. Örnek.
+- **RwLock&lt;T>**: Tanım. Çoklu Okuyucu, Tek Yazıcı. Örnek.
+- **Cow&lt;'a, B>**: Tanım. Clone on Write. Kullanım Senaryosu. Örnek.
+- **Weak&lt;T>**: Tanım. Döngüsel Referans Çözümü. Rc/Arc ile Kullanım. Örnek.
 - **Deref ve DerefMut Trait'leri**: Tanım. Deref Coercion. Örnek.
 - **Drop Trait'i**: Tanım. Kaynak Temizleme. RAII. Örnek.
  
@@ -354,7 +352,7 @@
 ### Rust : Trait Objesi ve Dinamik Dispatch
 - **Statik vs Dinamik Dispatch**: Tanım. Performans Farkı. Kullanım Senaryoları.
 - **Monomorphization**: Tanım. Derleme Zamanı Kod Üretimi. Örnek.
-- **dyn Trait**: Tanım. `Box<dyn Trait>`. `&dyn Trait`. vtable. Örnek.
+- **dyn Trait**: Tanım. `Box&lt;dyn Trait>`. `&dyn Trait`. vtable. Örnek.
 - **Object Safety**: Tanım. Kurallar. Self: Sized. Örnek.
 - **Trait Objesi vs Generic**: Karşılaştırma. Ne Zaman Hangisi? Tablo Halinde.
  
@@ -363,7 +361,7 @@
 ### Rust : Asenkron Programlama
 - **Asenkron Nedir?**: Tanım. Senkron vs Asenkron. Kullanım Senaryoları.
 - **Thread Nedir?**: Tanım. `std::thread::spawn`. `join()`. Örnek.
-  - **Thread ile Veri Paylaşımı**: `Arc<Mutex<T>>`. `mpsc` Channel. Örnek.
+  - **Thread ile Veri Paylaşımı**: `Arc&lt;Mutex&lt;T>>`. `mpsc` Channel. Örnek.
   - **Mutex ve Deadlock**: Tanım. Örnek.
   - **std::sync::mpsc**: Tanım. `Sender`. `Receiver`. Örnek.
   - **crossbeam Channel**: Tanım. mpsc ile Farkı. Örnek.
@@ -467,7 +465,7 @@
 - **Unit Test**: `#[test]` Attribute. `#[cfg(test)]` Modülü. Örnek.
 - **assert Makroları**: `assert!`, `assert_eq!`, `assert_ne!`. Örnek.
 - **should_panic**: `#[should_panic]` Attribute. Tanım. Örnek.
-- **Result Döndüren Testler**: `Result<(), Box<dyn Error>>`. Örnek.
+- **Result Döndüren Testler**: `Result&lt;(), Box&lt;dyn Error>>`. Örnek.
 - **Integration Test**: `tests/` Klasörü. Tanım. Örnek.
 - **Doc Test**: `///` İçindeki Kod Blokları. Tanım. Örnek.
 - **cargo test**: Tanım. Filtreleme. `--nocapture`. `--test-threads`. Örnek.
@@ -633,8 +631,8 @@
 - **Router Nedir?**: Tanım. `Router::new()`. Örnek.
 - **Route Tanımlama**: `.route()`. Yol Desenleri. Örnek.
 - **HTTP Metod Fonksiyonları**: `get()`, `post()`, `put()`, `patch()`, `delete()`. Örnek.
-- **Dinamik Route Parametreleri**: `Path<T>`. `/users/:id`. Örnek.
-- **Query Parametreleri**: `Query<T>`. `?key=value`. Örnek.
+- **Dinamik Route Parametreleri**: `Path&lt;T>`. `/users/:id`. Örnek.
+- **Query Parametreleri**: `Query&lt;T>`. `?key=value`. Örnek.
 - **Wildcard ve Catch-All**: `/*path`. Tanım. Örnek.
 - **Route Gruplama**: `.nest()`. Prefix ile Alt Router. Örnek.
 - **Route Birleştirme**: `.merge()`. Modüler Router. Örnek.
@@ -645,22 +643,22 @@
 
 ### Axum : Handler Fonksiyonlar
 - **Handler Nedir?**: Tanım. async Fonksiyon. Örnek.
-- **Response Dönüş Tipleri**: `String`. `Html`. `Json<T>`. `StatusCode`. `impl IntoResponse`. Örnek.
+- **Response Dönüş Tipleri**: `String`. `Html`. `Json&lt;T>`. `StatusCode`. `impl IntoResponse`. Örnek.
 - **IntoResponse Trait'i**: Tanım. Özel Response. Tuple ile Durum Kodu. Örnek.
-- **Hata Döndürme**: `Result<T, E>`. Hata Tipi Tasarımı. Örnek.
+- **Hata Döndürme**: `Result&lt;T, E>`. Hata Tipi Tasarımı. Örnek.
 - **Handler Fonksiyonlarda Kısıtlar**: Tanım. `Send` + `'static`. Örnek.
 
 ---
 
 ### Axum : Extractor'lar
 - **Extractor Nedir?**: Tanım. Request'ten Veri Çıkarma. Kullanım Senaryoları.
-- **Path Extractor**: `Path<(String, u32)>`. Tanım. Örnek.
-- **Query Extractor**: `Query<Params>`. Tanım. serde ile. Örnek.
-- **Json Extractor**: `Json<T>`. Request Body. serde ile. Örnek.
-- **Form Extractor**: `Form<T>`. URL-Encoded Body. Örnek.
+- **Path Extractor**: `Path&lt;(String, u32)>`. Tanım. Örnek.
+- **Query Extractor**: `Query&lt;Params>`. Tanım. serde ile. Örnek.
+- **Json Extractor**: `Json&lt;T>`. Request Body. serde ile. Örnek.
+- **Form Extractor**: `Form&lt;T>`. URL-Encoded Body. Örnek.
 - **Header Extractor**: `TypedHeader`. `HeaderMap`. Örnek.
-- **State Extractor**: `State<T>`. Uygulama Durumu. Örnek.
-- **Extension Extractor**: `Extension<T>`. Middleware'den Veri. Örnek.
+- **State Extractor**: `State&lt;T>`. Uygulama Durumu. Örnek.
+- **Extension Extractor**: `Extension&lt;T>`. Middleware'den Veri. Örnek.
 - **Body Extractor**: `Bytes`. `String`. Ham Body Okuma. Örnek.
 - **Multipart Extractor**: `Multipart`. Dosya Yükleme. Örnek.
 - **Özel Extractor Yazma**: `#[async_trait]`. `FromRequestParts`. `FromRequest`. Örnek.
@@ -688,9 +686,9 @@
 
 ### Axum : State Yönetimi
 - **Application State Nedir?**: Tanım. Paylaşımlı Veri. Kullanım Senaryoları.
-- **State ile Paylaşım**: `Router::with_state()`. `State<T>`. `Clone` Gereksinimi. Örnek.
-- **Arc ile State**: `Arc<AppState>`. Thread-Safe Paylaşım. Örnek.
-- **Arc<Mutex<T>> ile Değiştirilebilir State**: Tanım. Dikkat Edilecekler. Örnek.
+- **State ile Paylaşım**: `Router::with_state()`. `State&lt;T>`. `Clone` Gereksinimi. Örnek.
+- **Arc ile State**: `Arc&lt;AppState>`. Thread-Safe Paylaşım. Örnek.
+- **Arc&lt;Mutex&lt;T>> ile Değiştirilebilir State**: Tanım. Dikkat Edilecekler. Örnek.
 - **Veritabanı Havuzu (Connection Pool)**: `sqlx::Pool`. `deadpool`. State Olarak. Örnek.
 - **Birden Fazla State**: Tanım. Alt State. `FromRef` Derive. Örnek.
 - **Extension ile State**: `.layer(Extension(...))`. Eski Yöntem. Örnek.
@@ -707,7 +705,7 @@
 - **Pagination**: Tanım. `Query` ile Sayfa/Limit. Örnek.
 - **Seri Hale Getirme/Çözme**: serde. `#[serde(rename_all)]`. `#[serde(skip)]`. Örnek.
 - **API Versiyonlama**: `/api/v1/`. Nest ile. Örnek.
-- **Response Envelope**: Tanım. Standart JSON Yapısı. `ApiResponse<T>`. Örnek.
+- **Response Envelope**: Tanım. Standart JSON Yapısı. `ApiResponse&lt;T>`. Örnek.
 
 ---
 
@@ -744,7 +742,7 @@
   - **Askama**: Tanım. Derleme Zamanı Template. `#[derive(Template)]`. Örnek.
   - **Tera**: Tanım. Jinja2 Benzeri. Dinamik Template. Örnek.
   - **Minijinja**: Tanım. Hafif Template. Örnek.
-- **HTML Response**: Tanım. `Html<String>`. Örnek.
+- **HTML Response**: Tanım. `Html&lt;String>`. Örnek.
 - **SPA (Single Page Application) Desteği**: Tanım. Fallback ile. React/Vue. Örnek.
 
 ---

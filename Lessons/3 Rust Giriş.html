@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Rust</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Giriş</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>Yazılım Nedir?</h2>
+        <pre id="preh2">Yazılım, bir bilgisayara yapıcağı işleri özel bir dil ile anlatılan yazılara ve komutlara yazılım denir.</pre>
+
+        <h3>Donanım Nedir?</h3>
+        <pre id="preh3">Donanım, bir bilgisayar içerisindeki görebildiğim ve dokunabildiğimiz tüm nesnelerdir.</pre>
+
+        <pre id="preh3">Yazılım dillerinin hepsi bir donanım üzerinde çalışır. Yani burada bir ilişki vardır. Eğer yazılım var olmasaydı donanımlar işlevsiz devre kartlarına, donanım var olmasaydı ise yazılım var olmazdı.</pre>
+
+        <h3>Low-Level ve High-Level</h3>
+        <pre id="preh3">Low-Level, bir yazılım dilinin insan diline uzak, High-Level ise insan diline yakınlığını belirten bir belirteçtir.</pre>
+
+        <pre id="preh3">Low-Level diller, donanıma en yakın ve insan diline en uzak dillerdir. Genellikle sürücü yazılımı ve işletim sistemi kodlarken Low-Level dillere ihtiyaç duyarız. Örnek olarak ise C, C++, Assembly ve Rust dilleri örnek verilebilir. Bu dökümantasyonda içini dışını öğreneciğimiz C++ dili ise Low-Level yani donanıma yakın diller arasındadır.</pre>
+
+        <pre id="preh3">High-Level diller, donanıma uzak ve insan diline en yakın dillerdir. Genellikle basit uygulamalar,giriş seviye algoritmaları ve GUI gibi yerlerde kullanılır. Örnek olarak ise Python, Java, C# ve Ruby dilleri örnek verilebilir.</pre>
+
+        <h3>Yazılım Dilleri</h3>
+        <pre id="preh3">Yazılım dilleri, bilgisayarlara özel olarak üretilmiş ve komut vermek amacıyla yazılan bir dildir. Yazılım genel olarak donanıma elektrik sinyalleri aracığıyla ne yapması gerektiğini anlatan komut dizisidir. Dünya üzerinde sekiz binden fazla yazılım dili olasada hepsinin temelde yaptığı işlem donanımla fiziksel işlemler gerçekleştirmektir. Bazı farklar hariç hangi yazılım dilini yazdığımız fark etmez. Mantık aynı fakat sözdizimi yani Syntax farklıdır.</pre>
+
+        <h2>Rust Nedir?</h2>
+        <pre id="preh2">Rust, düşük seviyeli bir programala dilidir.</pre>
+
+        <h3>Kısa Tarihçesi</h3>
+        <pre id="preh3">2006 yılında Mozilla çalışanı olan Graydon Hoare, söylenenlere göre apartmanındaki asansörün bozulmasıyla aklına gelen bir fikir ile projeye başlamıştır. O zaman bir çok yerleşik sistemlerde kullanılan olan dil C veya C++ idi. Yazılmasından kaynaklı C ve C++ dillerinde bellekler bazen düzgün kullanılamaz ve program çöker. Böyle bir durumda asansöründe başına gelen buydu ki Graydon Hoare'ın aklına bir fikir geldi. "Eğer bellek yönetimini dil kendisi yaparsa, çökmeler yaşanmaz." Fikri bu idi. Fakat bu durum çöp toplayıcısı yani Garbage Collector gerektiriyordu. Düşük seviyeli bir programlama dilinde de Garbage Collector olması, ciddi sıkıntılar doğurabilirdi. Bu sebeble Garbage Collector'sız fakat bellek yönetimini dilin kendisinin yaptığı bir proje için kolları sıvadı. 2000 yılına kadar da Mozilla vakfı dışına çıkmamıştır. Ardından 2009 yılının sonlarına doğru Mozilla vakfı projeyle ilginmeye başladığı zamanki sıralarda bir çok mühendis Rust için dili geliştirmeye başlamışlardı. İlk kararlı sürüm 2012 yılında duyruldu. Pek çok yazılımcı Rust'ı çok sevdi. Öyleki 2016 yılındandır beri en çok sevilen yazılım dili olarak seçilmiştir.</pre>
+
+        <h3>C ve C++ Dillerindeki Farkları</h3>
+        <pre id="preh3">Rust her ne kadar düşük seviyeli bir programlama dili olsada, müdillerinden yani C ve C++'dan farklılıkları vardır. Aşağıdaki tabloda verilmiştir.</pre>
+
+        <table id="tableh3">
+            <thead>
+                <tr>
+                    <th>Konu</th>
+                    <th>C ve C++</th>
+                    <th>Rust</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bellek Güvenliği</td>
+                    <td>Bellek güvenliği programcının elindedir.</td>
+                    <td>Bellek güvenliği Ownership(Sahiplenme) denilen bir sistem ile Rust programlama dilinde yapar. Garbage Collector'dan çok farklıdır.</td>
+                </tr>
+                <tr>
+                    <td>Paket Desteği</td>
+                    <td>Merkezi bir paket/kütüphane sistemi yoktur.</td>
+                    <td>Paket/Kütüphane gibi ihtiyaçlar için Cargo uygulaması ile sağlanır.</td>
+                </tr>
+                <tr>
+                    <td>OOP(Obje Yönelimli Programlama) Desteği</td>
+                    <td>C yoktur. Fakat C++'da desteği fazladır.</td>
+                    <td>Rust'da bellek güvenliği açısından OOP desteklenmez.</td>
+                </tr>
+                <tr>
+                    <td>Çapraz Platformluk</td>
+                    <td>C ve C++ programlama dillerinde sınırlıdır.</td>
+                    <td>Çoğunlukla çapraz platformlu kodlar yazılabilir.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Kullanım Alanları</h3>
+        <pre id="preh3">Rust programlama dilinin kullanım alanları aşağıda verilmiştir;</pre>
+        
+        <ul>
+            <li>Gömülü sistemlerde</li>
+            <li>WebAssembly</li>
+            <li>Oyun Yapımında</li>
+            <li>Konsol Uygulamalarında</li>
+        </ul>
+
+        <h2>Rust Kurulum</h2>
+        <pre id="preh2">Şimdi Rust'u kurabiliriz...</pre>
+
+        <h3>Kurulum</h3>
+
+        <pre id="preh3">İlk olarak Rust'ın resmi <a href="https://rust-lang.org/tools/install/">sitesine</a> gidelim. İşletim sistemizin uygun olan ".exe" dosyasını tıklayarak indirelim. İndikten sonra çalıştıralım.</pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/3 Rust Giris.html/1.png" alt="3.1" width="100%">
+        </div>
+
+        <pre id="preh3">Enter tuşuna basıp kurulumu başlatalım. Ardından bir komut satırı açıp "rustc" yazalım. Eğer uzun bir çıktı alıyorsak, kurulmuş demektir.</pre>
+
+        <pre id="preh3">Bu işlemleri Windows işletim sistemi içindi. Şimdi Linux için kurulum yapalım.</pre>
+
+        <pre id="preh3">Tek yapmamız gereken bir Shell açıp <code class="language-bash">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code> yazıp Enter'a basalım. Çıkan seçim ekranında da yine Enter tuşuna basarak kurulumu gerçekleştirelim.</pre>
+
+        <h3>IDE Seçimi</h3>
+        <pre id="preh3">Ben gelişme ortamı olarak Visual Studio Code'u kullanıcağım. Ancak siz istediğiniz geliştirme ortamını kullanabilirsiniz.</pre>
+
+        <pre id="preh2">Visual Studio Code kullananlar, uygun eklentimizi <a href="https://marketplace.visualstudio.com/items?itemName=1YiB.rust-bundle">kuralım</a>.</pre>
+
+        <pre id="preh2">Artık Rust programlama dilinde uygulamalar geliştirebiliriz.</pre>
+
+        <h3>İlk Proje</h3>
+        <pre id="preh3">İlk projemizi oluşturmak için bir klasör oluşturalım ve şu komutu girelim;</pre>
+
+        <pre id="codeh3"><code class="language-rust">cargo new ilkProjemiz</code></pre>
+
+        <pre id="preh3">Ardından oluşan klasörde Visual Studio Code ile açalım. Artık ilk projemiz oluşmuş oldu...</pre>
+
+        <h2>İlk Program</h2>
+        <pre id="preh2">VS Code ile açtığımız klasörde şu komutuda çalıştıralım;</pre>
+
+        <pre id="codeh2"><code class="language-bash">cargo run</code></pre>
+
+        <pre id="preh2">Kodun çıktısında "Hello, world!" görebilirsiniz. Tebrikler, ilk programınızı derleyip çalıştırdınız!</pre>
+
+        <pre id="preh2">Şimdi kodları inceleyelim.</pre>
+
+        <pre id="codeh2"><code class="language-rust">// <- Bu işaretler yorum satırı anlamına gelir. Yorum satırı ise uygulamanın görmediği kısımlardır. İlerki sayfalarda daha detaylı işlenicektir
+
+fn main() // Programın başı. Tüm programlar bu kısımdan başlarlar 
+{ // Kod bloğun başlangıcı
+    println!("Hello, world!"); // println! komutu, bizlere konsola bazı ifadeler yazdırmamızı sağlayan bir araçtır
+} // Kod bloğunun sonu
+</code></pre>
+
+        <pre id="codeh2">Şimdi ise o tırnaklar içerisine "Rust programlama dilini öğreniyurum" yazmanızı istiyorum. Ardından <code class="language-bash">cargo run</code> komutu ile çıktıyı gözlemlemenizi istiyorum.</pre>
+
+        <h2>Derlenme Süreci</h2>
+        <pre id="preh2">Derlenme; bir programala dilinin, başka dile çevrilmesi sonucu ortaya çıkan dosyanın çalıştırılabilir olmasına denir.</pre>
+
+        <pre id="preh2">Rust'da derleme süreçleri şu şekildedir.</pre>
+
+        <h3>Cargo Check</h3>
+        <pre id="preh3">Bu komut, kodda herhangi bir hatanın veya uyarının olup olmadığını kontrol eden ve bir çıktı olarak bizlere göstermektedir. Aynı komutu projemize yazarsak, aynı şekilde bizlerde sonucu gözlemleyebiliriz.</pre>
+
+        <pre id="code3"><code class="language-rust">cargo check</code></pre>
+
+        <h3>Cargo Build</h3>
+        <pre id="preh3">Bu komutta hatasız olan Rust kodunu Assembly diline akabinde çalıştırılabilir dosyaya derler.</pre>
+
+        <pre id="codeh3"><code class="language-rust">cargo build</code></pre>
+
+        <h3>Cargo Run</h3>
+        <pre id="preh3">Bizimde sıklıkla kullanıcağımız bu komutta, bahsettiğimiz komutlara ek olarak bir de derlenen programı çalıştıran bir komuttur.</pre>
+
+        <pre id="codeh3"><code class="language-rust">cargo run</code></pre>
+
+        <h3>Rustc</h3>
+        <pre id="preh3">Rustc, Cargo aracının temelinde yatan araçtır. Bu araç, bizlere proje oluşturmadan tekli Rust kaynak dosyalarını derlememizi sağlar.</pre>
+
+        <pre id="codeh2">Örnek olarak, başka bir klasörün içerisine "main.rs" adlı kod dosyasını oluşturalım ve şu komutları yazalım;
+
+<code class="language-rust">fn main()
+{
+    println!("Merhaba, Rust programcısı!");
+}</code>
+
+Ardından
+
+<code class="language-bash">rustc main.rs
+./main # Linux
+main # Windows</code>
+
+Çıktısı ise;</pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/3 Rust Giris.html/2.png" alt="3.2" width="100%">
+        </div>
+
+        <h3>Sürümler Arası Geçiş</h3>
+        <pre id="preh3">Açtığımız projeye geri dönelim. Projenin klasöründe "Cargo.toml" adlı bir dosya görüceksiniz. Bu dosya projemizin paket yöneticisidir. Bu kısımda yazılan kütüphaneleri kolayla programıza katabilir. İçerisinde sürüm bilgileride bulunur.</pre>
+
+        <pre id="codeh3"><code class="language-toml"># <- Toml için yorum satırı
+
+[package]
+name = "ilkProjemiz"
+version = "0.1.0"
+edition = "2024" # <- Bu kısım
+
+[dependencies]</code>
+
+"edition" kısmı, projenin hangi Rust sürümünü kullanıcağını ifade eder. Rust sürümleri ise üç yıl arayla çıkan stabil Rust programlama dilinin sürümleridir. Aşağıda sürüm yılları verilmiştir;</pre>
+
+        <ul>
+            <li>2024</li>
+            <li>2021</li>
+            <li>2018</li>
+            <li>2015</li>
+        </ul>
+
+        <h2>Kaynakça</h2>
+        <ul>
+            <li><a href="https://data35delete.github.io/Data-s-Book-on-Cpp/Lessons/3%20Cpp%20Giri%C5%9F.html">Data's Book on Cpp - Giriş</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Rust_(programming_language)">https://en.wikipedia.org/wiki/Rust_(programming_language)</a></li>
+            <li><a href="https://web.archive.org/web/20160318113033/http://stackoverflow.com/research/developer-survey-2016#technology-most-loved-dreaded-and-wanted">https://web.archive.org/web/20160318113033/http://stackoverflow.com/research/developer-survey-2016#technology-most-loved-dreaded-and-wanted</a></li>
+            <li><a href="https://marketplace.visualstudio.com/items?itemName=1YiB.rust-bundle">https://marketplace.visualstudio.com/items?itemName=1YiB.rust-bundle</a></li>
+        </ul>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./2 Rust Önsöz.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Rust İçindekiler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->
